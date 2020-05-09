@@ -1,0 +1,5 @@
+#Docker build folder
+build/
+
+# Dependency directories
+node_modules/
