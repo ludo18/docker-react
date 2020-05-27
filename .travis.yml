@@ -8,3 +8,15 @@ before_install:
 
 script:
   - docker run -e CI=true ludo/docker-react npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "my-docker-react-app"
+  env: "MyDockerReactApp-env"
+  bucket_name: "elasticbeanstalk-us-east-2-755203143921"
+  bucket_path: "my-docker-react-app"
+  on:
+      branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
